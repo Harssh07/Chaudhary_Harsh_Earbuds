@@ -1,69 +1,75 @@
 (() => {
-  //console.log("IIFE Fired");
-  //variables
+  console.log("IIFE Fired");
+  //   variables
   const model = document.querySelector("#model");
   const hotspots = document.querySelectorAll(".Hotspot");
 
-  const InfoBoxes = [{
-       title: "Charging pot",
-       text: "Charge for 10 min and use for 10 hrs",
-       image: "../images/image_hotspot.svg"
- }]
+  const InfoBoxes = [
+    {
+      title: "Charging pod",
+      text: "Charge for 10 min and use for 10 hrs",
+      image: "../images/image_hotspot",
+    },
+    {
+      title: "Volume up",
+      text: "Press once to increase volume and and press twice to receive incoming call",
+      image: "../images/image_hotspot",
+    },
+    {
+      title: "Volume Down",
+      text: "Press once to decrease volume",
+      image: "../images/image_hotspot",
+    },
+    {
+      title: "Sweat-free Eartips",
+      text: "Sweat free eartips for all usage",
+      image: "../images/image_hotspot",
+    },
+    {
+      title: "glossy finish body",
+      text: "Glossy finishing, which looks nice and smooth",
+      image: "../images/image_hotspot",
+    },
+  ];
+  // functions
 
-  //functions
   function modelLoaded() {
-    //console.log(hotspots);
-    hotspots.forEach(hotspot => {
-      hotspot.style.display = "block";
+    hotspots.forEach((hotspot) => {
+      hotspot.style.display = "inline";
     });
   }
 
   function loadInfo() {
-    
-    InfoBoxes.forEach((infoBox, index)=>{
-      let selected = document.querySelector(`hotspot-${index + 1}`);
-      console.log(selected);
-      //document.createElement('h2'):
-      //textContent = infoBox.title
+    InfoBoxes.forEach((infoBox, index) => {
+      let selected = document.querySelector(`.hotspot-${index + 1}`);
 
+      const titleElement = document.createElement("h2");
+      titleElement.textContent = infoBox.title;
 
-      //document.createElement('p'):
-      //textContent = infoBox.text
+      const textElement = document.createElement("p");
+      textElement.textContent = infoBox.text;
 
-
-      // console.log(infoBox.title);
-      // console.log(infoBox.text);
-
-
-      // selected.appendChild();
-      // selected.appendChild();
-    })
-    //let selected = document.querySelector(`#hotspot-${a dynamic number}`)
+      selected.appendChild(titleElement);
+      selected.appendChild(textElement);
+    });
   }
   loadInfo();
 
   function showInfo() {
-    //console.log(this.slot);
-    //console.log(`#${this.slot}`);
-    //since the slot value matches the id value I can use the slot value as a selector to get to the div I want.
     let selected = document.querySelector(`#${this.slot}`);
     gsap.to(selected, 1, { autoAlpha: 1 });
   }
 
   function hideInfo() {
-    //console.log(this.slot);
-    //console.log(`#${this.slot}`);
     let selected = document.querySelector(`#${this.slot}`);
-    gsap.to(selected, 1, { autoAlpha: 0 });
+    gsap.to(selected, 3, { autoAlpha: 0 });
   }
 
-  //Event Listener
+  // event listeners
   model.addEventListener("load", modelLoaded);
 
   hotspots.forEach(function (hotspot) {
-    hotspot.addEventListener("mouseover", showInfo);
+    hotspot.addEventListener("mousehover", showInfo);
     hotspot.addEventListener("mouseout", hideInfo);
   });
 })();
-
-// In this version, the event listeners use regular functions instead of arrow functions, so the "this" keyword inside the event listeners will refer to the DOM element that triggered the event.
