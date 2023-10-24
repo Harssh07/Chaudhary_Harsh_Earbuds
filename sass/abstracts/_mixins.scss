@@ -40,10 +40,13 @@
 @mixin fontFace($font-family, $file-path) {
     @font-face {
         font: {
-            family: $font-family;
-            weight: normal;
+            family:  'Dancing Script', cursive;
+            ;
+            weight: 10px;
             style: normal;
-        }
+            
+        
+    }
         //Modern Browsers
         src: url('#{$file-path}.woff') format('woff'),
         url('#{$file-path}.woff2') format('woff2')
