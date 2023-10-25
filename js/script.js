@@ -1,6 +1,5 @@
 (() => {
-  console.log("IIFE Fired");
-  //   variables
+  // Variables
   const model = document.querySelector("#model");
   const hotspots = document.querySelectorAll(".Hotspot");
 
@@ -31,45 +30,36 @@
       image: "../images/ar_icon.png",
     },
   ];
-  // functions
 
+  // Functions
   function modelLoaded() {
-    hotspots.forEach((hotspot) => {
-      hotspot.style.display = "inline";
+    hotspots.forEach(hotspot => {
+      hotspot.style.display = "block";
     });
   }
-
-  function loadInfo() {
-    InfoBoxes.forEach((infoBox, index) => {
-      let selected = document.querySelector(`.hotspot-${index + 1}`);
-
-      const titleElement = document.createElement("h2");
-      titleElement.textContent = infoBox.title;
-
-      const textElement = document.createElement("p");
-      textElement.textContent = infoBox.text;
-
-      selected.appendChild(titleElement);
-      selected.appendChild(textElement);
-    });
-  }
-  loadInfo();
 
   function showInfo() {
-    let selected = document.querySelector(`#${this.slot}`);
-    gsap.to(selected, 1, { autoAlpha: 1 });
+    let selected = document.querySelector(`#${this.getAttribute('slot')}`);
+    if (selected) {
+      gsap.to(selected, 1, { autoAlpha: 1 });
+    }
   }
 
   function hideInfo() {
-    let selected = document.querySelector(`#${this.slot}`);
-    gsap.to(selected, 3, { autoAlpha: 0 });
+    let selected = document.querySelector(`#${this.getAttribute('slot')}`);
+    if (selected) {
+      gsap.to(selected, 1, { autoAlpha: 0 });
+    }
   }
 
-  // event listeners
-  model.addEventListener("load", modelLoaded);
+  // Event Listener
+  if (model) {
+    model.addEventListener("load", modelLoaded);
+  }
 
   hotspots.forEach(function (hotspot) {
-    hotspot.addEventListener("mousehover", showInfo);
+    hotspot.addEventListener("mouseover", showInfo);
     hotspot.addEventListener("mouseout", hideInfo);
   });
+
 })();
