@@ -8,27 +8,27 @@
     {
       title: "Charging pod",
       text: "Charge for 10 min and use for 10 hrs",
-      image: "../images/image_hotspot",
+      image: "../images/ar_icon.png",
     },
     {
       title: "Volume up",
       text: "Press once to increase volume and and press twice to receive incoming call",
-      image: "../images/image_hotspot",
+      image: "../images/ar_icon.png",
     },
     {
       title: "Volume Down",
       text: "Press once to decrease volume",
-      image: "../images/image_hotspot",
+      image: "../images/ar_icon.png",
     },
     {
       title: "Sweat-free Eartips",
       text: "Sweat free eartips for all usage",
-      image: "../images/image_hotspot",
+      image: "../images/ar_icon.png",
     },
     {
       title: "glossy finish body",
       text: "Glossy finishing, which looks nice and smooth",
-      image: "../images/image_hotspot",
+      image: "../images/ar_icon.png",
     },
   ];
   // functions
