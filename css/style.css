@@ -20,11 +20,11 @@ model-viewer {
 }
 
 .Hotspot {
-  background: url(../images/hotspot.svg) center no-repeat;
+  background: url(../images/ar_icon.png) center no-repeat;
   /* border: 0px;
   width: 45px;
   height: 38px; */
-  display: none;
+  
   transition: all 1s ease-in-out;
   border-radius: 32px;
   border: 0;
@@ -60,7 +60,8 @@ model-viewer {
 }
 
 .HotspotAnnotation{
-  background: #ff0000;
+  visibility: hidden;
+  background: #b35454;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
   color: rgba(0, 0, 0, 0.8);
@@ -76,7 +77,6 @@ model-viewer {
   position: absolute;
   top: 50%;
   width: max-content;
-  display: none;
   left: calc(100% + 1em);
   transform-origin: top left; 
 }
@@ -84,13 +84,15 @@ model-viewer {
   font-size: 20px;
 }
 .Hotspot:hover .HotspotAnnotation {
-  display: block;
+  display: auto;
+  visibility: visible;
 }
 .Hotspot:not([data-visible]) > * {
   opacity: 0;
-  pointer-events: none;
+  pointer-events: auto;
   transform: translateY(calc(-50% + 4px));
   transition: transform 0.3s, opacity 0.3s;
+  visibility: visible;
 }
 
 
