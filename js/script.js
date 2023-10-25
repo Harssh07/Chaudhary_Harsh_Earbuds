@@ -1,75 +1,39 @@
 (() => {
-  console.log("IIFE Fired");
-  //   variables
+  //console.log("IIFE Fired");
+  //variables
   const model = document.querySelector("#model");
   const hotspots = document.querySelectorAll(".Hotspot");
 
-  const InfoBoxes = [
-    {
-      title: "led light logo",
-      text: "use the smart light indication in the back to know the battery percentage for the earbuds",
-      image: "../img/hotspot-svgrepo-com.svg",
-    },
-    {
-      title: "magnetic charging",
-      text: "use the smart light indication in the back to know the battery percentage for the earbuds",
-      image: "../img/hotspot-svgrepo-com.svg",
-    },
-    {
-      title: "comfortable ear peace",
-      text: "use the smart light indication in the back to know the battery percentage for the earbuds",
-      image: "../img/hotspot-svgrepo-com.svg",
-    },
-    {
-      title: "light weight body",
-      text: "use the smart light indication in the back to know the battery percentage for the earbuds",
-      image: "../img/hotspot-svgrepo-com.svg",
-    },
-    {
-      title: "long battery life",
-      text: "use the smart light indication in the back to know the battery percentage for the earbuds",
-      image: "../img/hotspot-svgrepo-com.svg",
-    },
-  ];
-  // functions
-
+  //functions
   function modelLoaded() {
-    hotspots.forEach((hotspot) => {
-      hotspot.style.display = "inline";
+    //console.log(hotspots);
+    hotspots.forEach(hotspot => {
+      hotspot.style.display = "block";
     });
   }
-
-  function loadInfo() {
-    InfoBoxes.forEach((infoBox, index) => {
-      let selected = document.querySelector(`.hotspot-${index + 1}`);
-
-      const titleElement = document.createElement("h2");
-      titleElement.textContent = infoBox.title;
-
-      const textElement = document.createElement("p");
-      textElement.textContent = infoBox.text;
-
-      selected.appendChild(titleElement);
-      selected.appendChild(textElement);
-    });
-  }
-  loadInfo();
 
   function showInfo() {
+    //console.log(this.slot);
+    //console.log(`#${this.slot}`);
+    //since the slot value matches the id value I can use the slot value as a selector to get to the div I want.
     let selected = document.querySelector(`#${this.slot}`);
     gsap.to(selected, 1, { autoAlpha: 1 });
   }
 
   function hideInfo() {
+    //console.log(this.slot);
+    //console.log(`#${this.slot}`);
     let selected = document.querySelector(`#${this.slot}`);
-    gsap.to(selected, 3, { autoAlpha: 0 });
+    gsap.to(selected, 1, { autoAlpha: 0 });
   }
 
-  // event listeners
+  //Event Listener
   model.addEventListener("load", modelLoaded);
 
   hotspots.forEach(function (hotspot) {
-    hotspot.addEventListener("mousehover", showInfo);
+    hotspot.addEventListener("mouseover", showInfo);
     hotspot.addEventListener("mouseout", hideInfo);
   });
 })();
+
+// In this version, the event listeners use regular functions instead of arrow functions, so the "this" keyword inside the event listeners will refer to the DOM element that triggered the event.
