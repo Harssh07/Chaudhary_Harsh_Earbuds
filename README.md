@@ -3,3 +3,6 @@
 
 ## Project Info
 #### My student id is 1107979 and here i have made a webpage, which shows hotspots for earbuds.As you take your cursor to the hotspot it will pop-up the hotspot information.
+#### For that i have used Take AR object, javascript, CSS3 and greensock library to animate the hotspot display information.
+
+
